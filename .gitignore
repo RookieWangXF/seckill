@@ -1,0 +1,19 @@
+# IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# OSX
+.DS_Store
+
+# Scripts
+*.sh
+
+# Maven
+target

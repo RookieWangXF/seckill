@@ -11,6 +11,7 @@ import java.util.List;
  * Package_name is cn.rookie.dao
  * Description:
  */
+
 public interface SeckillDao {
     /**
      * 建库存

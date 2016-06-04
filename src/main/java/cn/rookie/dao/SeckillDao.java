@@ -13,8 +13,9 @@ import java.util.List;
  */
 
 public interface SeckillDao {
+
     /**
-     * 建库存
+     * 减库存
      * @param seckillId
      * @param killTime
      * @return 如果影响行数>1,表示更新的记录行数

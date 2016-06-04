@@ -7,7 +7,7 @@ import java.util.Date;
  * Package_name is cn.rookie.entity
  * Description:
  */
-public class Successkilled {
+public class SuccessKilled {
 
     private long seckillId;
 
@@ -62,7 +62,7 @@ public class Successkilled {
 
     @Override
     public String toString() {
-        return "Successkilled{" +
+        return "SuccessKilled{" +
                 "seckillId=" + seckillId +
                 ", userPhone=" + userPhone +
                 ", state=" + state +

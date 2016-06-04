@@ -1,6 +1,6 @@
 package cn.rookie.dao;
 
-import cn.rookie.entity.Successkilled;
+import cn.rookie.entity.SuccessKilled;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
  * Package_name is cn.rookie.dao
  * Description:
  */
-public interface SuccessKillDao {
+public interface SuccessKilledDao {
 
     /**
      * 插入购买明细，可以过滤重复
@@ -23,7 +23,7 @@ public interface SuccessKillDao {
      * @param seckillId
      * @return
      */
-    Successkilled queryByIdWithSeckill(long seckillId,@Param("userPhone") long userPhone);
+    SuccessKilled queryByIdWithSeckill(@Param("seckillId") long seckillId, @Param("userPhone") long userPhone);
 
 
 }

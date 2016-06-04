@@ -1,14 +1,12 @@
 package cn.rookie.dao;
 
-import cn.rookie.entity.Successkilled;
+import cn.rookie.entity.SuccessKilled;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Rookie on 2016/5/14.
@@ -20,19 +18,22 @@ import static org.junit.Assert.*;
 public class SuccessKillDaoTest {
 
     @Resource
-    private SuccessKillDao successKillDao;
+    private SuccessKilledDao successKillDao;
 
     @Test
     public void insertSuccessKilled() throws Exception {
-        long id = 1000;
-        long phone = 123432451;
+        long id = 1001L;
+        long phone = 123432245;
         int res = successKillDao.insertSuccessKilled(id, phone);
-        System.out.println(res);
+        System.out.println("[res]:" + res);
     }
 
     @Test
     public void queryByIdWithSeckill() throws Exception {
-
+        long id = 1001L;
+        long phone = 123432245;
+        SuccessKilled successKilled = successKillDao.queryByIdWithSeckill(id, phone);
+        System.out.println("[successKilled]:" + successKilled);
     }
 
 }

@@ -31,31 +31,34 @@
 
   <!--
     1. 日志：slf4j + logback
+    slf4j是一个规范，其他的是具体的实现
   -->
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.20</version>
+      <version>1.7.12</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-core</artifactId>
-      <version>1.1.6</version>
+      <version>1.1.1</version>
     </dependency>
     <!-- 实现slf4j接口并整合 -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.1.6</version>
+      <version>1.1.1</version>
     </dependency>
 
+    <!-- 数据库相关依赖 -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
@@ -66,6 +69,7 @@
       <artifactId>c3p0</artifactId>
       <version>0.9.1.2</version>
     </dependency>
+
     <!-- Mybtais 框架 + 与Srping整合依赖-->
     <dependency>
       <groupId>org.mybatis</groupId>
@@ -78,7 +82,7 @@
       <version>1.2.3</version>
     </dependency>
 
-    <!--servlet相关依赖-->
+    <!--servlet web相关依赖-->
     <dependency>
       <groupId>taglibs</groupId>
       <artifactId>standard</artifactId>

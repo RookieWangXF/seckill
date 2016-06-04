@@ -21,10 +21,8 @@
         <property name="maxPoolSize" value="30" />
         <property name="minPoolSize" value="10" />
         <property name="autoCommitOnClose" value="false" />
-        <!-- 获取超时连接时间 -->
-        <property name="checkoutTimeout" value="1000" />
         <!-- 当获取连接失败重试次数 -->
-        <property name="acquireRetryAttempts" value="10" />
+        <property name="acquireRetryAttempts" value="2" />
         <property name="maxIdleTime" value="1000"></property>
         <property name="initialPoolSize" value="3"></property>
 

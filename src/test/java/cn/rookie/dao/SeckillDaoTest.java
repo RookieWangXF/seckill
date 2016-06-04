@@ -1,8 +1,12 @@
 package cn.rookie.dao;
 
 import cn.rookie.entity.Seckill;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,35 +25,41 @@ import java.util.List;
  * spring-test,junit
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao.xml"}) //告诉junit，spring的配置文件
+@ContextConfiguration({"classpath:spring/spring-dao.xml"})
 public class SeckillDaoTest {
-    /**
-     * 注入Dao实现类依赖
-     */
+
+    //private ApplicationContext ctx;
     @Resource
     private SeckillDao seckillDao;
 
+    /*@Before
+    public void setUp() {
+        ctx = new ClassPathXmlApplicationContext("/spring/spring-dao.xml");
+        this.seckillDao = (SeckillDao) ctx.getBean("seckillDao");
+    }*/
+
+
     @Test
     public void reduceNumber() throws Exception {
-        Date killTime = new Date();
 
+        Date killTime = new Date();
         int updateCount = seckillDao.reduceNumber(1000L, killTime);
-        System.out.println(updateCount);
+        System.out.println("[updateCount]"+updateCount);
     }
 
     @Test
     public void queryById() throws Exception {
         long id = 1000;
         Seckill seckill = seckillDao.queryById(id);
-        System.out.println(seckill.getName());
-        System.out.println(seckill);
+        System.out.println("[seckill.getName()]:"+seckill.getName());
+        System.out.println("[seckill]:"+seckill);
     }
 
     @Test
     public void queryAll() throws Exception {
         List<Seckill> seckills = seckillDao.queryAll(0, 100);
         for (Seckill seckill : seckills) {
-            System.out.println(seckill);
+            System.out.println("[seckill]:"+seckill);
         }
     }
 

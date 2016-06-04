@@ -1,6 +1,6 @@
 package cn.rookie.dto;
 
-import cn.rookie.entity.Successkilled;
+import cn.rookie.entity.SuccessKilled;
 import cn.rookie.enums.SeckillStateEnum;
 
 /**
@@ -19,7 +19,7 @@ public class SeckillExecution {
     private String stateInfo;
 
     //秒杀成功对象
-    private Successkilled successKilled;
+    private SuccessKilled successKilled;
 
     public long getSeckillId() {
         return seckillId;
@@ -45,11 +45,11 @@ public class SeckillExecution {
         this.stateInfo = stateInfo;
     }
 
-    public Successkilled getSuccessKilled() {
+    public SuccessKilled getSuccessKilled() {
         return successKilled;
     }
 
-    public void setSuccessKilled(Successkilled successKilled) {
+    public void setSuccessKilled(SuccessKilled successKilled) {
         this.successKilled = successKilled;
     }
 
@@ -59,7 +59,7 @@ public class SeckillExecution {
      * @param stateEnum
      * @param successKilled
      */
-    public SeckillExecution(long seckillId, SeckillStateEnum stateEnum, Successkilled successKilled) {
+    public SeckillExecution(long seckillId, SeckillStateEnum stateEnum, SuccessKilled successKilled) {
         this.seckillId = seckillId;
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
@@ -75,5 +75,15 @@ public class SeckillExecution {
         this.seckillId = seckillId;
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
+    }
+
+    @Override
+    public String toString() {
+        return "SeckillExecution{" +
+                "seckillId=" + seckillId +
+                ", state=" + state +
+                ", stateInfo='" + stateInfo + '\'' +
+                ", successKilled=" + successKilled +
+                '}';
     }
 }

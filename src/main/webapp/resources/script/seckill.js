@@ -15,7 +15,7 @@ var seckill = {
         },
 
         execution: function (seckillId, md5) {
-            return 'seckill/' + seckillId + '/' + md5 + '/execution';
+            return '/seckill/' + seckillId + '/' + md5 + '/execution';
         }
     },
 
@@ -33,12 +33,12 @@ var seckill = {
                     var md5 = exposer['md5'];
                     var killUrl = seckill.URL.execution(seckillId,md5);
                     console.log('killUrl:' + killUrl);
-                    //绑定一次点击事件
+                    //绑定一次点击事件,防止多次点击
                     $('#killBtn').one('click',function () {
                         //1:执行秒杀请求
                         $(this).addClass('disabled');
                         //2:发送秒杀请求执行秒杀
-                        $.post(url,{},function (result) {
+                        $.post(killUrl,{},function (result) {
                             if (result && result['success']){
                                 var killResult = result['data'];
                                 var state = killResult['state'];

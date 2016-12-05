@@ -30,7 +30,7 @@ public class SeckillServiceTest {
 
     private Logger logger = LoggerFactory.getLogger(SeckillServiceTest.class);
 
-    @Resource
+    @Autowired
     private SeckillService seckillService;
 
     @Test
@@ -48,16 +48,16 @@ public class SeckillServiceTest {
 
     @Test
     public void exportSeckillUrl() throws Exception {
-        long id = 1000;
+        long id = 1000L;
         Exposer exposer = seckillService.exportSeckillUrl(id);
         logger.info("[exportSeckillUrl()]:" + exposer);
     }
 
     @Test
     public void executeSeckill() throws Exception {
-        long id = 1000;
-        long phone = 123432243;
-        String md5 = "b96fc70731bb7d48cfc4d66c5bcb3ce1";
+        long id = 1000L;
+        long phone = 15652293;
+        String md5 = "e179885e229d9dd890f862f8ab9bb410";
         SeckillExecution execution = seckillService.executeSeckill(id, phone, md5);
         logger.info("[executeSeckill()]:" + execution);
     }

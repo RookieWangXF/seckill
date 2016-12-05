@@ -37,7 +37,7 @@ public class SeckillServiceImpl implements SeckillService {
     @Autowired
     private SuccessKilledDao successKilledDao;
 
-    private final String slat = "adsfasgdrfg345234656*^&64352asdf";
+    private final String slat = "adsf@asgdrf!g3452346!#$56*^&64352asdf";
 
     @Override
     public List<Seckill> getSeckillList() {

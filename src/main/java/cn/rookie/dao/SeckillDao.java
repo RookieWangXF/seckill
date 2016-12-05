@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Rookie on 2016/5/13.
  * Package_name is cn.rookie.dao
- * Description:
+ * Description:Seckill的操作类
  */
 
 public interface SeckillDao {

@@ -22,16 +22,16 @@ public class SuccessKillDaoTest {
 
     @Test
     public void insertSuccessKilled() throws Exception {
-        long id = 1001L;
-        long phone = 123432245;
+        long id = 1002L;
+        long phone = 123432246L;
         int res = successKillDao.insertSuccessKilled(id, phone);
         System.out.println("[res]:" + res);
     }
 
     @Test
     public void queryByIdWithSeckill() throws Exception {
-        long id = 1001L;
-        long phone = 123432245;
+        long id = 1002L;
+        long phone = 123432246L;
         SuccessKilled successKilled = successKillDao.queryByIdWithSeckill(id, phone);
         System.out.println("[successKilled]:" + successKilled);
     }

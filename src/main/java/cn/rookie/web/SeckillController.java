@@ -23,7 +23,7 @@ import java.util.List;
  * Package_name is cn.rookie.web
  * Description:
  */
-@Controller   //放入spring容器当中
+@Controller
 @RequestMapping("/seckill")
 public class SeckillController {
 
@@ -91,14 +91,14 @@ public class SeckillController {
             return new SeckillResult<SeckillExecution>(true, execution);
         } catch (SeckillCloseException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.END);
-            return new SeckillResult<SeckillExecution>(true, execution);
+            return new SeckillResult<SeckillExecution>(false, execution);
         } catch (RepeatKillException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
-            return new SeckillResult<SeckillExecution>(true, execution);
+            return new SeckillResult<SeckillExecution>(false, execution);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
-            return new SeckillResult<SeckillExecution>(true, execution);
+            return new SeckillResult<SeckillExecution>(false, execution);
         }
     }
 

@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!-- 引入jstl -->
 <%@include file="common/tag.jsp"%>
 <html>
 <head>
@@ -8,11 +7,6 @@
     <%@include file="common/head.jsp" %>
 </head>
 <body>
-    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
     <!-- 页面显示部分 -->
     <div class="container">
         <div class="panel panel-default">
@@ -32,28 +26,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="sk" items="${list}">
-                        <tr>
-                            <td>${sk.name}</td>
-                            <td>${sk.number}</td>
-                            <td>
-                                <fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                            </td>
-                            <td>
-                                <fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                            </td>
-                            <td>
-                                <fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                            </td>
-                            <td>
-                                <a class="btn btn-info" href="/seckill/${sk.seckillId}/detail" target="_blank">link</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
+                        <c:forEach var="sk" items="${list}">
+                            <tr>
+                                <td>${sk.name}</td>
+                                <td>${sk.number}</td>
+                                <td>
+                                    <fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                </td>
+                                <td>
+                                    <fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                </td>
+                                <td>
+                                    <fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+                                </td>
+                                <td>
+                                    <a class="btn btn-info" href="/seckill/${sk.seckillId}/detail" target="_blank">link</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>

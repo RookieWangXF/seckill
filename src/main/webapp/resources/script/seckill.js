@@ -79,7 +79,7 @@ var seckill = {
         } else if (nowTime < startTime) {
             //秒杀未开始
             var killTime = new Date(startTime + 1000);
-            seckillBox.countdown(killTime, function (event) {
+            seckillBox.countdown(killTime, function(event) {
                 var format = event.strftime('秒杀倒计时：%D天 %H时 %M分 %S秒');
                 seckillBox.html(format);
                 //时间完成后回调事件
@@ -114,6 +114,7 @@ var seckill = {
                 });
                 $('#killPhoneBtn').click(function () {
                     var inputPhone = $('#killPhoneKey').val();
+                    console.log('inputPhone='+inputPhone); //TODO
                     if (seckill.validatePhone(inputPhone)) {
                         //电话写入cookie
                         $.cookie('killPhone', inputPhone, {expires: 7, path: '/seckill'});

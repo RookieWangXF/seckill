@@ -3,6 +3,8 @@ package cn.rookie.service;
 import cn.rookie.dto.Exposer;
 import cn.rookie.dto.SeckillExecution;
 import cn.rookie.entity.Seckill;
+import cn.rookie.exception.RepeatKillException;
+import cn.rookie.exception.SeckillCloseException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -56,10 +58,46 @@ public class SeckillServiceTest {
     @Test
     public void executeSeckill() throws Exception {
         long id = 1000L;
-        long phone = 15652293;
+        long phone = 156533;
         String md5 = "e179885e229d9dd890f862f8ab9bb410";
         SeckillExecution execution = seckillService.executeSeckill(id, phone, md5);
         logger.info("[executeSeckill()]:" + execution);
     }
 
+    @Test
+    public void testExecuteSeckill() throws Exception {
+        long id = 1000L;
+        long phone = 15346533;
+        String md5 = "e179885e229d9dd890f862f8ab9bb410";
+        try {
+            SeckillExecution execution = seckillService.executeSeckill(id, phone, md5);
+            logger.info("result={}", execution);
+        } catch (RepeatKillException e) {
+            logger.error(e.getMessage());
+        } catch (SeckillCloseException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testSeckillLogic() throws Exception {
+        long id = 1000L;
+        Exposer exposer = seckillService.exportSeckillUrl(id);
+        if (exposer.isExposed()) {
+            logger.info("[exposer]:" + exposer);
+            long phone = 12356533;
+            String md5 = exposer.getMd5();
+            try {
+                SeckillExecution execution = seckillService.executeSeckill(id, phone, md5);
+                logger.info("result={}", execution);
+            } catch (RepeatKillException e) {
+                logger.error(e.getMessage());
+            } catch (SeckillCloseException e) {
+                logger.error(e.getMessage());
+            }
+        } else {
+            logger.warn("[exposer]:" + exposer);
+        }
+
+    }
 }
